@@ -80,7 +80,7 @@ define('ace/mode/owm_highlight_rules', function(require, exports) {
 						'punctuation',
 					],
 					regex:
-						'(pioneers|settlers|townplanners)(\\s*\\[)(\\d+(?:\\.\\d{1,})*)(\\,\\s*)(\\d+(?:\\.\\d{1,})*)(\\,\\s*)(\\d+(?:\\.\\d{1,})*)(\\,\\s*)(\\d+(?:\\.\\d{1,}))(\\])',
+						'(explorers|villagers|townplanners)(\\s*\\[)(\\d+(?:\\.\\d{1,})*)(\\,\\s*)(\\d+(?:\\.\\d{1,})*)(\\,\\s*)(\\d+(?:\\.\\d{1,})*)(\\,\\s*)(\\d+(?:\\.\\d{1,}))(\\])',
 				},
 				{
 					token: [
