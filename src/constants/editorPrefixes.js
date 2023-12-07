@@ -6,7 +6,7 @@ const iterationBuilder = optArray => {
 	return strings;
 };
 
-const attitudes = ['pioneers', 'settlers', 'townplanners'].map(a => [
+const attitudes = ['explorers', 'villagers', 'townplanners'].map(a => [
 	a,
 	'[<visibility>, <maturity>, <visibility2>, <maturity2>]',
 ]);
