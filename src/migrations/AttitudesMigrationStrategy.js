@@ -2,7 +2,7 @@ import AttitudeExtractionStrategy from '../conversion/AttitudeExtractionStrategy
 
 export default class AttitudesMigrationStrategy {
 	apply(mapText) {
-		const attitudes = ['pioneers', 'settlers', 'townplanners'];
+		const attitudes = ['explorers', 'villagers', 'townplanners'];
 		let trimmed = mapText.trim();
 		let elementsAsArray = trimmed.split('\n');
 		let rebuild = [];
