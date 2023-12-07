@@ -317,8 +317,8 @@ describe('Convert test suite', function() {
 		expect(result.pipelines[0].hidden).toEqual(true);
 	});
 
-	test.each(['pioneers', 'settlers', 'townplanners'])(
-		'pioneers are extracted with width and height',
+	test.each(['explorers', 'villagers', 'townplanners'])(
+		'explorers are extracted with width and height',
 		function(x) {
 			let actual = `${x} [0.98, 0.5] 100 200`;
 			let result = new Converter().parse(actual);
@@ -331,8 +331,8 @@ describe('Convert test suite', function() {
 		}
 	);
 
-	test.each(['pioneers', 'settlers', 'townplanners'])(
-		'pioneers are extracted with matruity and visibility for width height',
+	test.each(['explorers', 'villagers', 'townplanners'])(
+		'explorers are extracted with matruity and visibility for width height',
 		function(x) {
 			let actual = `${x} [0.98, 0.5, 0.6, 0.7]`;
 			let result = new Converter().parse(actual);
