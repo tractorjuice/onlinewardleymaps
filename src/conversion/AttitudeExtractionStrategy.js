@@ -10,7 +10,7 @@ export default class AttitudeExtractionStrategy {
 	constructor(data) {
 		this.data = data;
 		this.containerName = 'attitudes';
-		this.baseStrategies = ['pioneers', 'settlers', 'townplanners']
+		this.baseStrategies = ['explorers', 'villagers', 'townplanners']
 			.map(
 				e =>
 					new BaseStrategyRunner(
