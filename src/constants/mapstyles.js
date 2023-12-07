@@ -20,13 +20,13 @@ export const Plain = {
 	attitudes: {
 		strokeWidth: '5px',
 		fontSize: '14px',
-		pioneers: {
+		explorers: {
 			stroke: '#3490dd',
 			fill: '#3ccaf8',
 			fillOpacity: 0.4,
 			strokeOpacity: 0.7,
 		},
-		settlers: {
+		villagers: {
 			stroke: '#396dc0',
 			fill: '#599afa',
 			fillOpacity: 0.4,
