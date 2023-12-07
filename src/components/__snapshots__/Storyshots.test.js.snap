@@ -435,7 +435,7 @@ exports[`Storyshots Usage  default 1`] = `
   ------------------------
   <br />
   <strong>
-    Pioneers, Settlers, Townplanners area
+    Explorers, Villagers, Townplanners area
   </strong>
   <br />
    
@@ -451,7 +451,7 @@ exports[`Storyshots Usage  default 1`] = `
     href="#"
     onClick={[Function]}
   >
-    pioneers [&lt;visibility&gt;, &lt;maturity&gt;, &lt;visibility2&gt;, &lt;maturity2&gt;]
+    explorers [&lt;visibility&gt;, &lt;maturity&gt;, &lt;visibility2&gt;, &lt;maturity2&gt;]
   </span>
   <br />
   <span
@@ -459,7 +459,7 @@ exports[`Storyshots Usage  default 1`] = `
     href="#"
     onClick={[Function]}
   >
-    settlers [0.59, 0.43, 0.49, 0.63]
+    villagers [0.59, 0.43, 0.49, 0.63]
   </span>
   <br />
   <span
