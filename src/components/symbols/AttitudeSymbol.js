@@ -1,5 +1,5 @@
 // position, height and width seems simple, but to allow irregular shapes, could go polygon
-//pioneers [topRight, topLeft, bottomLeft, bottomRight]
+// explorers [topRight, topLeft, bottomLeft, bottomRight]
 // <polygon id={id} points="100,100 150,25 150,75 200,0"
 import React, { memo } from 'react';
 import PropTypes from 'prop-types';
