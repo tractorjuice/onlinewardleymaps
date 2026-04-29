@@ -30,18 +30,23 @@ const Map: React.FC<MapProps> = props => {
     }, [currentLanguage]);
 
     useEffect(() => {
-        if (slug === undefined) {
-            if (typeof window !== 'undefined' && window.location.hash.length > 0) {
-                setMapPersistenceStrategy(MapPersistenceStrategy.Legacy);
-                let mapId = window.location.hash.replace('#', '');
-                if (mapId.includes(':')) {
-                    mapId = mapId.split(':')[1];
-                }
-                setCurrentId(mapId);
-                setShouldLoad(true);
+        if (slug !== undefined) return;
+        if (typeof window === 'undefined') return;
+
+        const loadFromHash = () => {
+            if (window.location.hash.length === 0) return;
+            let mapId = window.location.hash.replace('#', '');
+            if (mapId.includes(':')) {
+                mapId = mapId.split(':')[1];
             }
-            return;
-        }
+            setMapPersistenceStrategy(MapPersistenceStrategy.Legacy);
+            setCurrentId(mapId);
+            setShouldLoad(true);
+        };
+
+        loadFromHash();
+        window.addEventListener('hashchange', loadFromHash);
+        return () => window.removeEventListener('hashchange', loadFromHash);
     }, [slug]);
 
     const pageTitle = `${t('app.title', 'Wardley Maps')} - ${t('app.name', 'Online Wardley Maps')}`;
