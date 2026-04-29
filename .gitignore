@@ -27,3 +27,4 @@ api/node_modules/
 api/dist/
 data/
 *.tgz
+.vercel
