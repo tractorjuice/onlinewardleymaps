@@ -27,6 +27,19 @@ export const PST_CONFIG: Record<PSTType, PSTTypeConfig> = {
         minWidth: 50,
         minHeight: 30,
     },
+    // Aliases: explorers ≡ pioneers, villagers ≡ settlers (alternate Wardley terminology)
+    explorers: {
+        color: '#3ccaf8', // matches pioneers
+        label: 'Explorers',
+        minWidth: 50,
+        minHeight: 30,
+    },
+    villagers: {
+        color: '#599afa', // matches settlers
+        label: 'Villagers',
+        minWidth: 50,
+        minHeight: 30,
+    },
 };
 
 /**

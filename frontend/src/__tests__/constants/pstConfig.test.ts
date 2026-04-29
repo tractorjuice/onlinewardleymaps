@@ -13,8 +13,8 @@ import {PSTType} from '../../types/map/pst';
 
 describe('PST Configuration Constants', () => {
     describe('PST_CONFIG', () => {
-        it('should contain configuration for all PST types', () => {
-            const expectedTypes: PSTType[] = ['pioneers', 'settlers', 'townplanners'];
+        it('should contain configuration for all PST types (including explorers/villagers aliases)', () => {
+            const expectedTypes: PSTType[] = ['pioneers', 'settlers', 'townplanners', 'explorers', 'villagers'];
 
             expectedTypes.forEach(type => {
                 expect(PST_CONFIG[type]).toBeDefined();
@@ -43,7 +43,7 @@ describe('PST Configuration Constants', () => {
         });
 
         it('should have consistent minimum dimensions across all types', () => {
-            const types: PSTType[] = ['pioneers', 'settlers', 'townplanners'];
+            const types: PSTType[] = ['pioneers', 'settlers', 'townplanners', 'explorers', 'villagers'];
 
             types.forEach(type => {
                 expect(PST_CONFIG[type].minWidth).toBe(50);
@@ -51,8 +51,19 @@ describe('PST Configuration Constants', () => {
             });
         });
 
-        it('should have unique colors for each PST type', () => {
-            const colors = Object.values(PST_CONFIG).map(config => config.color);
+        it('should have explorers/villagers aliases that mirror pioneers/settlers colors and labels', () => {
+            // Aliases are deliberately not unique — explorers ≡ pioneers and villagers ≡ settlers.
+            expect(PST_CONFIG.explorers.color).toBe(PST_CONFIG.pioneers.color);
+            expect(PST_CONFIG.villagers.color).toBe(PST_CONFIG.settlers.color);
+            expect(PST_CONFIG.explorers.label).toBe('Explorers');
+            expect(PST_CONFIG.villagers.label).toBe('Villagers');
+        });
+
+        it('should have unique colors across the three canonical PST types', () => {
+            // Aliases share colors with their canonical counterparts by design;
+            // we only require uniqueness across pioneers/settlers/townplanners.
+            const canonical: PSTType[] = ['pioneers', 'settlers', 'townplanners'];
+            const colors = canonical.map(type => PST_CONFIG[type].color);
             const uniqueColors = new Set(colors);
 
             expect(uniqueColors.size).toBe(colors.length);
