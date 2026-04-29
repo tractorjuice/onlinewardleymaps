@@ -1,8 +1,8 @@
 {
     "app": {
-        "title": "ワードレイマップ",
-        "name": "オンラインワードレイマップ",
-        "description": "ワードレイマップをオンラインで作成・共有する"
+        "title": "Wardley Maps AI",
+        "name": "Wardley Maps AI",
+        "description": "AIを使用してWardleyマップを数秒で作成"
     },
     "common": {
         "loading": "読み込み中...",
@@ -48,8 +48,7 @@
         "hideLineNumbers": "行番号を非表示",
         "showEvolvedLinks": "進化したリンクを表示",
         "hideEvolvedLinks": "進化したリンクを非表示",
-        "usageGuide": "使用ガイド",
-        "becomePatron": "パトロンになる ❤️"
+        "usageGuide": "使用ガイド"
     },
     "map": {
         "title": {
@@ -305,8 +304,8 @@
         "downloadExtension": "Download Visual Studio Code Extension",
         "wardleyMapping": "ワードリーマッピングはサイモン・ワードリーの提供、CC BY-SA 4.0。詳細については、",
         "wardleyMappingLink": "書籍",
-        "createdBy": "作成者",
-        "patreonAlt": "パトロンになる"
+        "originallyDevelopedBy": "原作者",
+        "modifiedForAiBy": "AI向けの改変"
     },
     "dialogs": {
         "deleteConfirmation": "この操作は元に戻せません。",

@@ -1,8 +1,8 @@
 {
     "app": {
-        "title": "Wardley Maps",
-        "name": "Online Wardley Maps",
-        "description": "Create and share Wardley Maps online"
+        "title": "Wardley Maps AI",
+        "name": "Wardley Maps AI",
+        "description": "Draw Wardley Maps in seconds using AI"
     },
     "common": {
         "loading": "Loading...",
@@ -48,8 +48,7 @@
         "hideLineNumbers": "Hide Line Numbers",
         "showEvolvedLinks": "Show Evolved Links",
         "hideEvolvedLinks": "Hide Evolved Links",
-        "usageGuide": "Usage Guide",
-        "becomePatron": "Become a Patron ❤️"
+        "usageGuide": "Usage Guide"
     },
     "map": {
         "title": {
@@ -305,8 +304,8 @@
         "community": "Join the community",
         "documentation": "Documentation",
         "support": "Support",
-        "createdBy": "Created by",
-        "patreonAlt": "Become a Patron"
+        "originallyDevelopedBy": "Originally developed by",
+        "modifiedForAiBy": "Modified for AI by"
     },
     "dialogs": {
         "areYouSure": "Are you sure?",

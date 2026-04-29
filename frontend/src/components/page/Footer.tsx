@@ -52,15 +52,16 @@ const Footer: React.FC = () => {
             </Box>
             <Box sx={{width: '50%', textAlign: 'right'}}>
                 <Typography>
-                    <Link href="https://www.patreon.com/mapsascode" rel="noreferrer noopener" target="_blank">
-                        {/* eslint-disable-next-line @next/next/no-img-element */}
-                        <img alt={t('footer.patreonAlt', 'Become a Patron')} height="38" src="/become_a_patron_button.png" width="162" />
-                    </Link>
-                </Typography>
-                <Typography>
-                    {t('footer.createdBy', 'Created by')}{' '}
+                    {t('footer.originallyDevelopedBy', 'Originally developed by')}{' '}
                     <Link href="https://www.linkedin.com/in/skels/" target="_blank" rel="noopener noreferrer">
                         Damon Skelhorn
+                    </Link>
+                    .
+                </Typography>
+                <Typography>
+                    {t('footer.modifiedForAiBy', 'Modified for AI by')}{' '}
+                    <Link href="https://github.com/tractorjuice" target="_blank" rel="noopener noreferrer">
+                        Mark Craddock
                     </Link>
                 </Typography>
             </Box>

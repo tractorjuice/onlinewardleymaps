@@ -163,10 +163,6 @@ export const NewHeader: FunctionComponent<NewHeaderProps> = ({
             <MenuItem onClick={() => handleMoreClose(() => window.open('https://docs.onlinewardleymaps.com'))} disableRipple>
                 {t('header.usageGuide', 'Usage Guide')}
             </MenuItem>
-            <Divider />
-            <MenuItem onClick={() => handleMoreClose(() => window.open('https://www.patreon.com/mapsascode'))} disableRipple>
-                {t('header.becomePatron', 'Become a Patron ❤️')}
-            </MenuItem>
         </StyledMenu>
     );
     return (

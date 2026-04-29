@@ -1,8 +1,8 @@
 {
     "app": {
-        "title": "Cartes de Wardley",
-        "name": "Cartes de Wardley en Ligne",
-        "description": "Créer et partager des Cartes de Wardley en ligne"
+        "title": "Wardley Maps AI",
+        "name": "Wardley Maps AI",
+        "description": "Dessinez des Cartes de Wardley en quelques secondes avec l'IA"
     },
     "common": {
         "loading": "Chargement...",
@@ -48,8 +48,7 @@
         "hideLineNumbers": "Masquer les Numéros de Ligne",
         "showEvolvedLinks": "Afficher les Liens Évolués",
         "hideEvolvedLinks": "Masquer les Liens Évolués",
-        "usageGuide": "Guide d'Utilisation",
-        "becomePatron": "Devenir un Patron ❤️"
+        "usageGuide": "Guide d'Utilisation"
     },
     "map": {
         "title": {
@@ -305,8 +304,8 @@
         "community": "Rejoindre la communauté",
         "documentation": "Documentation",
         "support": "Assistance technique",
-        "createdBy": "Créé par",
-        "patreonAlt": "Devenir un Mécène"
+        "originallyDevelopedBy": "Initialement développé par",
+        "modifiedForAiBy": "Modifié pour l'IA par"
     },
     "dialogs": {
         "areYouSure": "Êtes-vous sûr ?",

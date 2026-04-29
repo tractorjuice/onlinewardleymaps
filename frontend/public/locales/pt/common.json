@@ -1,8 +1,8 @@
 {
     "app": {
-        "title": "Mapas de Wardley",
-        "name": "Mapas de Wardley Online",
-        "description": "Crie e compartilhe Mapas de Wardley online"
+        "title": "Wardley Maps AI",
+        "name": "Wardley Maps AI",
+        "description": "Desenhe Mapas de Wardley em segundos usando IA"
     },
     "common": {
         "loading": "A carregar...",
@@ -48,8 +48,7 @@
         "hideLineNumbers": "Ocultar Números de Linha",
         "showEvolvedLinks": "Mostrar Ligações Evoluídas",
         "hideEvolvedLinks": "Ocultar Ligações Evoluídas",
-        "usageGuide": "Guia de Utilização",
-        "becomePatron": "Torne-se um Patrono ❤️"
+        "usageGuide": "Guia de Utilização"
     },
     "map": {
         "title": {
@@ -305,8 +304,8 @@
         "downloadExtension": "Download Visual Studio Code Extension",
         "wardleyMapping": "Mapeamento Wardley cortesia de Simon Wardley, CC BY-SA 4.0. Para saber mais, veja",
         "wardleyMappingLink": "o livro",
-        "createdBy": "Criado por",
-        "patreonAlt": "Torne-se um Patrono"
+        "originallyDevelopedBy": "Originalmente desenvolvido por",
+        "modifiedForAiBy": "Modificado para IA por"
     },
     "dialogs": {
         "deleteConfirmation": "Esta ação não pode ser desfeita.",

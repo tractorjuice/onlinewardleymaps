@@ -1,8 +1,8 @@
 {
     "app": {
-        "title": "워들리 맵",
-        "name": "온라인 워들리 맵",
-        "description": "워들리 맵을 온라인에서 만들고 공유하세요"
+        "title": "Wardley Maps AI",
+        "name": "Wardley Maps AI",
+        "description": "AI를 사용하여 Wardley 맵을 몇 초 만에 그리기"
     },
     "common": {
         "loading": "로딩 중...",
@@ -48,8 +48,7 @@
         "hideLineNumbers": "줄 번호 숨기기",
         "showEvolvedLinks": "진화된 링크 표시",
         "hideEvolvedLinks": "진화된 링크 숨기기",
-        "usageGuide": "사용 가이드",
-        "becomePatron": "후원자 되기 ❤️"
+        "usageGuide": "사용 가이드"
     },
     "map": {
         "title": {
@@ -305,8 +304,8 @@
         "downloadExtension": "Download Visual Studio Code Extension",
         "wardleyMapping": "워들리 매핑은 사이먼 워들리 제공, CC BY-SA 4.0. 더 자세한 내용은",
         "wardleyMappingLink": "책",
-        "createdBy": "제작자",
-        "patreonAlt": "후원자가 되기"
+        "originallyDevelopedBy": "원래 개발자",
+        "modifiedForAiBy": "AI용 수정자"
     },
     "dialogs": {
         "deleteConfirmation": "이 작업은 취소할 수 없습니다.",

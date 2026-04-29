@@ -1,8 +1,8 @@
 {
     "app": {
-        "title": "沃德利地图",
-        "name": "在线沃德利地图",
-        "description": "在线创建和分享沃德利地图"
+        "title": "Wardley Maps AI",
+        "name": "Wardley Maps AI",
+        "description": "使用AI在几秒内创建Wardley地图"
     },
     "common": {
         "loading": "加载中...",
@@ -48,8 +48,7 @@
         "hideLineNumbers": "隐藏行号",
         "showEvolvedLinks": "显示演变链接",
         "hideEvolvedLinks": "隐藏演变链接",
-        "usageGuide": "使用指南",
-        "becomePatron": "成为赞助者 ❤️"
+        "usageGuide": "使用指南"
     },
     "map": {
         "title": {
@@ -305,8 +304,8 @@
         "downloadExtension": "Download Visual Studio Code Extension",
         "wardleyMapping": "沃德利映射由西蒙·沃德利提供，CC BY-SA 4.0。了解更多，请参阅",
         "wardleyMappingLink": "书籍",
-        "createdBy": "创建者",
-        "patreonAlt": "成为赞助者"
+        "originallyDevelopedBy": "原作者",
+        "modifiedForAiBy": "AI改造者"
     },
     "dialogs": {
         "deleteConfirmation": "此操作无法撤消。",
