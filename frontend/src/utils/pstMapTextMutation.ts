@@ -59,8 +59,9 @@ export function parsePSTSyntax(line: string): {
     const trimmedLine = line.trim();
 
     // PST syntax pattern: type [y1, x1, y2, x2] optional_name
+    // 'explorers' and 'villagers' are aliases for 'pioneers' and 'settlers'.
     const pstPattern =
-        /^(pioneers|settlers|townplanners)\s*\[\s*([0-9.]+)\s*,\s*([0-9.]+)\s*,\s*([0-9.]+)\s*,\s*([0-9.]+)\s*\](?:\s+(.+))?$/i;
+        /^(pioneers|settlers|townplanners|explorers|villagers)\s*\[\s*([0-9.]+)\s*,\s*([0-9.]+)\s*,\s*([0-9.]+)\s*,\s*([0-9.]+)\s*\](?:\s+(.+))?$/i;
 
     const match = trimmedLine.match(pstPattern);
 
@@ -315,8 +316,8 @@ export function validateMapTextPSTSyntax(mapText: string): {
     for (let i = 0; i < lines.length; i++) {
         const line = lines[i].trim();
 
-        // Skip empty lines and non-PST lines
-        if (!line || !line.match(/^(pioneers|settlers|townplanners)/i)) {
+        // Skip empty lines and non-PST lines (explorers/villagers are aliases for pioneers/settlers)
+        if (!line || !line.match(/^(pioneers|settlers|townplanners|explorers|villagers)/i)) {
             continue;
         }
 

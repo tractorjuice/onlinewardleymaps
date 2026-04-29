@@ -10,8 +10,9 @@ import {updatePSTElementInMapText} from './pstMapTextMutation';
  * Convert attitude data structure to PST element
  */
 export function convertAttitudeToPSTElement(attitude: any): PSTElement | null {
-    // Check if this is a PST attitude type
-    const pstTypes: PSTType[] = ['pioneers', 'settlers', 'townplanners'];
+    // Check if this is a PST attitude type.
+    // 'explorers' and 'villagers' are aliases for 'pioneers' and 'settlers'.
+    const pstTypes: PSTType[] = ['pioneers', 'settlers', 'townplanners', 'explorers', 'villagers'];
     if (!pstTypes.includes(attitude.attitude)) {
         return null;
     }

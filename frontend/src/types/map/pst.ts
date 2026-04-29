@@ -4,9 +4,13 @@
  */
 
 /**
- * PST element types
+ * PST element types.
+ * 'explorers' and 'villagers' are aliases for 'pioneers' and 'settlers' respectively
+ * (alternate Wardley Mapping terminology). They render identically and are handled
+ * uniformly throughout the PST pipeline so the user's typed keyword is preserved on
+ * drag/resize rewrites.
  */
-export type PSTType = 'pioneers' | 'settlers' | 'townplanners';
+export type PSTType = 'pioneers' | 'settlers' | 'townplanners' | 'explorers' | 'villagers';
 
 /**
  * Resize handle positions for PST elements

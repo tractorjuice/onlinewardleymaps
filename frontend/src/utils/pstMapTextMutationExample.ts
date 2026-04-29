@@ -185,7 +185,7 @@ export function validateMapTextForPSTIssues(mapText: string): {
  */
 export function addNewPSTElementToMapText(
     mapText: string,
-    type: 'pioneers' | 'settlers' | 'townplanners',
+    type: 'pioneers' | 'settlers' | 'townplanners' | 'explorers' | 'villagers',
     coordinates: PSTCoordinates,
     name?: string,
 ): string {

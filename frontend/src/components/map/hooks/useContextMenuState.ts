@@ -33,7 +33,7 @@ interface LinkProperties {
 }
 
 interface PSTProperties {
-    type: 'pioneers' | 'settlers' | 'townplanners';
+    type: 'pioneers' | 'settlers' | 'townplanners' | 'explorers' | 'villagers';
     name?: string;
 }
 
@@ -89,8 +89,10 @@ export const useContextMenuState = ({mapText, wardleyMap, onContextMenuReady}: U
         (componentId: string): MapElement | null => {
             // For PST elements (starting with pst-), create PST element
             if (componentId.startsWith('pst-')) {
-                const pstTypeMatch = componentId.match(/^pst-(pioneers|settlers|townplanners)-/);
-                const pstType = pstTypeMatch ? (pstTypeMatch[1] as 'pioneers' | 'settlers' | 'townplanners') : 'pioneers';
+                const pstTypeMatch = componentId.match(/^pst-(pioneers|settlers|townplanners|explorers|villagers)-/);
+                const pstType = pstTypeMatch
+                    ? (pstTypeMatch[1] as 'pioneers' | 'settlers' | 'townplanners' | 'explorers' | 'villagers')
+                    : 'pioneers';
 
                 const mapElement: MapElement = {
                     type: 'pst-element',
@@ -114,7 +116,7 @@ export const useContextMenuState = ({mapText, wardleyMap, onContextMenuReady}: U
                 // Find PST attitude that matches the componentId
                 const pstAttitude = wardleyMap.attitudes.find((attitude: any) => {
                     // PST attitudes have specific attitude types
-                    const isPSTType = ['pioneers', 'settlers', 'townplanners'].includes(attitude.attitude);
+                    const isPSTType = ['pioneers', 'settlers', 'townplanners', 'explorers', 'villagers'].includes(attitude.attitude);
                     // Check if the line number matches the componentId (PST IDs are line numbers)
                     const lineMatches = String(attitude.line) === String(componentId);
                     return isPSTType && lineMatches;
