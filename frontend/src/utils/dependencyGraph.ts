@@ -61,31 +61,33 @@ export function createDependencyGraph(processedLinks: ProcessedLinkGroup[]): Com
         });
     });
 
-    // Build transitive closure to find all descendants
-    const findAllDescendants = (componentName: string, visited = new Set<string>()): Set<string> => {
-        if (visited.has(componentName)) {
-            return new Set(); // Prevent cycles
-        }
+    // Snapshot direct descendants before we start mutating node.descendants below.
+    const directDescendants = new Map<string, string[]>();
+    nodes.forEach((node, name) => {
+        directDescendants.set(name, Array.from(node.descendants));
+    });
 
-        visited.add(componentName);
-        const node = nodes.get(componentName);
+    // Build transitive closure to find all descendants.
+    // Memoized: each component's transitive set is computed once and reused.
+    // The placeholder result Set is inserted into the cache before recursing,
+    // so a cycle returns the (still-being-built) set instead of looping.
+    const transitiveCache = new Map<string, Set<string>>();
+    const findAllDescendants = (componentName: string): Set<string> => {
+        const cached = transitiveCache.get(componentName);
+        if (cached) return cached;
 
-        if (!node) {
-            return new Set();
-        }
+        const result = new Set<string>();
+        transitiveCache.set(componentName, result);
 
-        const allDescendants = new Set<string>();
+        const direct = directDescendants.get(componentName);
+        if (!direct) return result;
 
-        // Add direct descendants
-        node.descendants.forEach(descendant => {
-            allDescendants.add(descendant);
-
-            // Recursively add descendants of descendants
-            const transitiveDescendants = findAllDescendants(descendant, new Set(visited));
-            transitiveDescendants.forEach(transitive => allDescendants.add(transitive));
+        direct.forEach(descendant => {
+            result.add(descendant);
+            findAllDescendants(descendant).forEach(transitive => result.add(transitive));
         });
 
-        return allDescendants;
+        return result;
     };
 
     // Update all nodes with complete descendant information
