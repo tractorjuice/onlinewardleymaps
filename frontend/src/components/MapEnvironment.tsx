@@ -320,7 +320,7 @@ const MapEnvironmentWithUndoRedo: FunctionComponent<MapEnvironmentWithUndoRedoPr
         currentIteration,
         setCurrentIteration,
         mapText: legacyState.mapText,
-        mutateMapText,
+        mutateMapText: legacyState.mutateMapText,
     });
 
     // Map parsing hook
