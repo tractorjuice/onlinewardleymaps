@@ -44,6 +44,9 @@ export interface MapAttitudeTheme {
     pioneers?: MapAttitudeTypeTheme;
     settlers?: MapAttitudeTypeTheme;
     townplanners?: MapAttitudeTypeTheme;
+    // Aliases: explorers ≡ pioneers, villagers ≡ settlers. Same visual treatment.
+    explorers?: MapAttitudeTypeTheme;
+    villagers?: MapAttitudeTypeTheme;
 }
 
 // Note Theme

@@ -80,11 +80,15 @@ const usages: Usage[] = [
     },
     {
         title: 'Pioneers, Settlers, Townplanners area',
-        summary: 'Add areas indicating which type of working approach supports component development',
+        summary:
+            'Add areas indicating which type of working approach supports component development. ' +
+            'Aliases: explorers ≡ pioneers, villagers ≡ settlers (use either set of terms; both are accepted).',
         examples: [
             'pioneers [<visibility>, <maturity>, <visibility2>, <maturity2>]',
             'settlers [0.59, 0.43, 0.49, 0.63]',
             'townplanners [0.31, 0.74, 0.15, 0.95]',
+            'explorers [0.85, 0.15, 0.65, 0.35]',
+            'villagers [0.59, 0.43, 0.49, 0.63]',
         ],
     },
     {

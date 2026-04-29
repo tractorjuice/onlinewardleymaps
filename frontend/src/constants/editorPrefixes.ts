@@ -6,7 +6,8 @@ const iterationBuilder = (optArray: string[]): string[] => {
     return strings;
 };
 
-const attitudes: [string, string][] = ['pioneers', 'settlers', 'townplanners'].map(a => [
+// 'explorers' and 'villagers' are aliases for 'pioneers' and 'settlers' (alternate Wardley terminology)
+const attitudes: [string, string][] = ['pioneers', 'settlers', 'townplanners', 'explorers', 'villagers'].map(a => [
     a,
     '[<visibility>, <maturity>, <visibility2>, <maturity2>]',
 ]);

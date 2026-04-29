@@ -9,7 +9,10 @@ export default class AttitudeExtractionStrategy implements IParseStrategy {
     constructor(data: string) {
         this.data = data;
         this.containerName = 'attitudes';
-        this.baseStrategies = ['pioneers', 'settlers', 'townplanners']
+        // 'explorers' and 'villagers' are aliases for 'pioneers' and 'settlers' respectively
+        // (Wardley's Pioneers/Settlers/Town Planners terminology, optionally renamed to
+        // Explorers/Villagers/Town Planners). Both keyword sets parse and render identically.
+        this.baseStrategies = ['pioneers', 'settlers', 'townplanners', 'explorers', 'villagers']
             .map(
                 e =>
                     new BaseStrategyRunner(

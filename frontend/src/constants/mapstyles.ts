@@ -40,6 +40,19 @@ export const Plain: MapTheme = {
             fillOpacity: 0.4,
             strokeOpacity: 0.7,
         },
+        // Aliases: explorers ≡ pioneers, villagers ≡ settlers (Wardley P/S/TP renamed to E/V/TP)
+        explorers: {
+            stroke: '#3490dd',
+            fill: '#3ccaf8',
+            fillOpacity: 0.4,
+            strokeOpacity: 0.7,
+        },
+        villagers: {
+            stroke: '#396dc0',
+            fill: '#599afa',
+            fillOpacity: 0.4,
+            strokeOpacity: 0.7,
+        },
     },
     methods: {
         buy: {
@@ -189,6 +202,19 @@ export const Handwritten = mergeIntoDefault({
             fillOpacity: 0.4,
             strokeOpacity: 0.7,
         },
+        // Aliases: explorers ≡ pioneers, villagers ≡ settlers (Wardley P/S/TP renamed to E/V/TP)
+        explorers: {
+            stroke: '#3490dd',
+            fill: '#3ccaf8',
+            fillOpacity: 0.4,
+            strokeOpacity: 0.7,
+        },
+        villagers: {
+            stroke: '#396dc0',
+            fill: '#599afa',
+            fillOpacity: 0.4,
+            strokeOpacity: 0.7,
+        },
     },
 });
 
@@ -261,6 +287,19 @@ export const Wardley = mergeIntoDefault({
             fillOpacity: 0.4,
             strokeOpacity: 0.7,
         },
+        // Aliases: explorers ≡ pioneers, villagers ≡ settlers (Wardley P/S/TP renamed to E/V/TP)
+        explorers: {
+            stroke: '#3490dd',
+            fill: '#3ccaf8',
+            fillOpacity: 0.4,
+            strokeOpacity: 0.7,
+        },
+        villagers: {
+            stroke: '#396dc0',
+            fill: '#599afa',
+            fillOpacity: 0.4,
+            strokeOpacity: 0.7,
+        },
     },
 });
 
@@ -298,6 +337,19 @@ export const Dark = mergeIntoDefault({
         townplanners: {
             stroke: '#4768c8',
             fill: '#936ff9',
+            fillOpacity: 0.4,
+            strokeOpacity: 0.7,
+        },
+        // Aliases: explorers ≡ pioneers, villagers ≡ settlers (Wardley P/S/TP renamed to E/V/TP)
+        explorers: {
+            stroke: '#3490dd',
+            fill: '#3ccaf8',
+            fillOpacity: 0.4,
+            strokeOpacity: 0.7,
+        },
+        villagers: {
+            stroke: '#396dc0',
+            fill: '#599afa',
             fillOpacity: 0.4,
             strokeOpacity: 0.7,
         },
@@ -462,6 +514,19 @@ export const Colour = mergeIntoDefault({
         townplanners: {
             stroke: '#4768c8',
             fill: '#936ff9',
+            fillOpacity: 0.4,
+            strokeOpacity: 0.7,
+        },
+        // Aliases: explorers ≡ pioneers, villagers ≡ settlers (Wardley P/S/TP renamed to E/V/TP)
+        explorers: {
+            stroke: '#3490dd',
+            fill: '#3ccaf8',
+            fillOpacity: 0.4,
+            strokeOpacity: 0.7,
+        },
+        villagers: {
+            stroke: '#396dc0',
+            fill: '#599afa',
             fillOpacity: 0.4,
             strokeOpacity: 0.7,
         },

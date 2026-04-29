@@ -24,6 +24,8 @@ export default class LinksExtractionStrategy implements IParseStrategy {
             'pioneers',
             'settlers',
             'townplanners',
+            'explorers',
+            'villagers',
             'submap',
             'url',
             '{',

@@ -74,11 +74,13 @@ export default class BaseStrategyRunner implements IParseStrategy {
 
                     if (elementValid) {
                         // Validate that the element has required properties
-                        // PST elements (pioneers, settlers, townplanners) don't require names
+                        // PST elements (pioneers, settlers, townplanners; aliases explorers, villagers) don't require names
                         const isExempt = [
                             'pioneers',
                             'settlers',
                             'townplanners',
+                            'explorers',
+                            'villagers',
                             'note',
                             'annotation',
                             'title',

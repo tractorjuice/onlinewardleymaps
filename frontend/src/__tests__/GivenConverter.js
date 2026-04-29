@@ -301,19 +301,22 @@ describe('Convert test suite', function () {
         expect(result.pipelines[0].hidden).toEqual(true);
     });
 
-    test.each(['pioneers', 'settlers', 'townplanners'])('pioneers are extracted with width and height', function (x) {
-        let actual = `${x} [0.98, 0.5] 100 200`;
-        let result = new Converter(mockContextValue).parse(actual);
+    test.each(['pioneers', 'settlers', 'townplanners', 'explorers', 'villagers'])(
+        '%s attitude is extracted with width and height',
+        function (x) {
+            let actual = `${x} [0.98, 0.5] 100 200`;
+            let result = new Converter(mockContextValue).parse(actual);
 
-        expect(result.attitudes.length).toEqual(1);
-        expect(result.attitudes[0].maturity).toEqual(0.5);
-        expect(result.attitudes[0].visibility).toEqual(0.98);
-        expect(result.attitudes[0].width).toEqual('100');
-        expect(result.attitudes[0].height).toEqual('200');
-    });
+            expect(result.attitudes.length).toEqual(1);
+            expect(result.attitudes[0].maturity).toEqual(0.5);
+            expect(result.attitudes[0].visibility).toEqual(0.98);
+            expect(result.attitudes[0].width).toEqual('100');
+            expect(result.attitudes[0].height).toEqual('200');
+        },
+    );
 
-    test.each(['pioneers', 'settlers', 'townplanners'])(
-        'pioneers are extracted with matruity and visibility for width height',
+    test.each(['pioneers', 'settlers', 'townplanners', 'explorers', 'villagers'])(
+        '%s attitude is extracted with maturity and visibility for width height',
         function (x) {
             let actual = `${x} [0.98, 0.5, 0.6, 0.7]`;
             let result = new Converter(mockContextValue).parse(actual);
@@ -325,6 +328,23 @@ describe('Convert test suite', function () {
             expect(result.attitudes[0].visibility2).toEqual(0.6);
         },
     );
+
+    test.each([
+        ['explorers', 'pioneers'],
+        ['villagers', 'settlers'],
+    ])('%s parses identically to %s (alias)', function (alias, canonical) {
+        const aliasResult = new Converter(mockContextValue).parse(`${alias} [0.98, 0.5, 0.6, 0.7]`);
+        const canonicalResult = new Converter(mockContextValue).parse(`${canonical} [0.98, 0.5, 0.6, 0.7]`);
+        expect(aliasResult.attitudes.length).toEqual(1);
+        expect(canonicalResult.attitudes.length).toEqual(1);
+        expect(aliasResult.attitudes[0].maturity).toEqual(canonicalResult.attitudes[0].maturity);
+        expect(aliasResult.attitudes[0].visibility).toEqual(canonicalResult.attitudes[0].visibility);
+        expect(aliasResult.attitudes[0].maturity2).toEqual(canonicalResult.attitudes[0].maturity2);
+        expect(aliasResult.attitudes[0].visibility2).toEqual(canonicalResult.attitudes[0].visibility2);
+        // The attitude keyword is preserved as typed (renderer uses style aliases for explorers/villagers)
+        expect(aliasResult.attitudes[0].attitude).toEqual(alias);
+        expect(canonicalResult.attitudes[0].attitude).toEqual(canonical);
+    });
 
     test('random string should give error', function () {
         const mapString = 'foobar';

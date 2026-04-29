@@ -71,6 +71,21 @@ export const PST_SUB_ITEMS: ToolbarSubItem[] = [
         template: (maturity1: string, visibilityHigh: string, maturity2: string, visibilityLow: string) =>
             `townplanners [${visibilityHigh}, ${maturity1}, ${visibilityLow}, ${maturity2}]`,
     },
+    // Aliases for the alternate Explorers / Villagers / Town Planners terminology
+    {
+        id: 'explorers',
+        label: 'Explorers',
+        color: '#3ccaf8', // matches pioneers
+        template: (maturity1: string, visibilityHigh: string, maturity2: string, visibilityLow: string) =>
+            `explorers [${visibilityHigh}, ${maturity1}, ${visibilityLow}, ${maturity2}]`,
+    },
+    {
+        id: 'villagers',
+        label: 'Villagers',
+        color: '#599afa', // matches settlers
+        template: (maturity1: string, visibilityHigh: string, maturity2: string, visibilityLow: string) =>
+            `villagers [${visibilityHigh}, ${maturity1}, ${visibilityLow}, ${maturity2}]`,
+    },
 ];
 
 /**

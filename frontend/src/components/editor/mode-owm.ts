@@ -132,7 +132,7 @@ interface DocCommentHighlightRules extends TextHighlightRules {
                             'constant.numeric',
                             'punctuation',
                         ],
-                        regex: '(pioneers|settlers|townplanners)(\\s*\\[)(-?\\d+(?:\\.\\d+)?)(\\,\\s*)(-?\\d+(?:\\.\\d+)?)(\\,\\s*)(-?\\d+(?:\\.\\d+)?)(\\,\\s*)(-?\\d+(?:\\.\\d+)?)(\\])',
+                        regex: '(pioneers|settlers|townplanners|explorers|villagers)(\\s*\\[)(-?\\d+(?:\\.\\d+)?)(\\,\\s*)(-?\\d+(?:\\.\\d+)?)(\\,\\s*)(-?\\d+(?:\\.\\d+)?)(\\,\\s*)(-?\\d+(?:\\.\\d+)?)(\\])',
                     },
                     {
                         token: ['keyword', 'variable.parameter.function.asp', 'punctuation', 'comment', 'punctuation'],
