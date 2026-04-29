@@ -28,3 +28,4 @@ api/dist/
 data/
 *.tgz
 .vercel
+.claude/
