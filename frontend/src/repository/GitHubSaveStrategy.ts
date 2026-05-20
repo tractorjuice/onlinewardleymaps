@@ -20,7 +20,7 @@ export class GitHubSaveStrategy implements SaveStrategy {
             throw new Error('No GitHub map is open. Open a map from GitHub before saving.');
         }
 
-        const message = window.prompt('Commit message', 'Update Wardley map via OnlineWardleyMaps');
+        const message = window.prompt('Commit message', 'Update Wardley map via create.wardleymaps.ai');
         if (message === null) return; // user cancelled
 
         // keptAsComments (unsupported keywords preserved as %% comments) is intentionally not surfaced in the UI yet — see the design spec's out-of-scope list.
