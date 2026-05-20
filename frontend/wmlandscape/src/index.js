@@ -80,6 +80,8 @@ import TitleExtractionStrategy from '../../src/conversion/TitleExtractionStrateg
 import {UnifiedConverter} from '../../src/conversion/UnifiedConverter';
 import UrlExtractionStrategy from '../../src/conversion/UrlExtractionStrategy';
 import XAxisLabelsExtractionStrategy from '../../src/conversion/XAxisLabelsExtractionStrategy';
+import {exportToMermaid} from '../../src/conversion/mermaid/MermaidExporter';
+import {importFromMermaid} from '../../src/conversion/mermaid/MermaidImporter';
 import {useLegacyMapState, useUnifiedMapState} from '../../src/hooks/useUnifiedMapState';
 import AllLinksStrategy from '../../src/linkStrategies/AllLinksStrategy';
 import AnchorLinksStrategy from '../../src/linkStrategies/AnchorLinksStrategy';
@@ -131,6 +133,7 @@ export {
     EvolvedToNoneEvolvingLinksStrategy,
     EvolveExtractionStrategy,
     EvolveToEvolvedLinksStrategy,
+    exportToMermaid,
     EvolvingComponentLink,
     EvolvingEndLinksStrategy,
     EvolvingToEvolvingLinksStrategy,
@@ -145,6 +148,7 @@ export {
     FeatureSwitchesProvider,
     FlowText,
     FluidLink,
+    importFromMermaid,
     Inertia,
     InertiaIcon,
     InertiaSymbol,

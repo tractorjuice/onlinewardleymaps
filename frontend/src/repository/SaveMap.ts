@@ -1,5 +1,6 @@
 import * as Defaults from '../constants/defaults';
 import LegacySaveStrategy from './LegacySaveStrategy';
+import {GitHubSaveStrategy} from './GitHubSaveStrategy';
 import {NullSaveStrategy} from './NullSaveStrategy';
 import {OwnApiWardleyMap} from './OwnApiWardleyMap';
 
@@ -13,6 +14,9 @@ export const SaveMap = async (
     switch (mapPersistenceStrategy) {
         case Defaults.MapPersistenceStrategy.Legacy:
             loadedSaveStrategy = new LegacySaveStrategy(callback);
+            break;
+        case Defaults.MapPersistenceStrategy.GitHub:
+            loadedSaveStrategy = new GitHubSaveStrategy(callback);
             break;
     }
     await loadedSaveStrategy.save(mapToPersist, hash);
