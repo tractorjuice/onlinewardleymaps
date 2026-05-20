@@ -11,3 +11,16 @@ describe('exportToMermaid', () => {
         expect(result.mermaid).toContain('component Foo [0.5, 0.5]');
     });
 });
+
+describe('exportToMermaid — unsupported keywords', () => {
+    it('preserves a market line as a %% comment', () => {
+        const result = exportToMermaid('component Foo [0.5, 0.5]\nmarket Buyers [0.9, 0.5]');
+        expect(result.mermaid).toContain('%% market Buyers [0.9, 0.5]');
+        expect(result.keptAsComments).toContain('market Buyers [0.9, 0.5]');
+    });
+
+    it('does not list normal lines in keptAsComments', () => {
+        const result = exportToMermaid('component Foo [0.5, 0.5]');
+        expect(result.keptAsComments).toEqual([]);
+    });
+});

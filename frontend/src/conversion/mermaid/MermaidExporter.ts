@@ -1,4 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
+import {isOwmOnlyLine} from './owmOnlyKeywords';
 /**
  * Shared OWM → Mermaid wardley-beta converter + file walker.
  * Consumed by test-real-maps.mjs (syntax validation) and
@@ -203,14 +204,11 @@ export function exportToMermaid(owmContent: string, titleFallback?: string): {me
         }
         if (!trimmed) continue;
 
-        if (/^style\s+wardley\s*$/i.test(trimmed)) continue;
-        if (/^(build|buy|outsource)\s+/i.test(trimmed)) continue;
-        if (/^[xy]-axis\s+/i.test(trimmed)) continue;
-        // Skip OWM `market <name> [vis, evo]` directive only — don't accidentally
-        // swallow links whose source component is named "Market ..." (e.g.,
-        // `Market segmentation -> Last Mile`).
-        if (/^market\s+[^[\]]+\[\s*[\d.]+\s*,/i.test(trimmed)) continue;
-        if (/^(ecosystem|submap|url|pioneer|settler|townplanner)\s+/i.test(trimmed)) continue;
+        if (isOwmOnlyLine(trimmed)) {
+            mermaidLines.push(`%% ${trimmed}`);
+            keptAsComments.push(trimmed);
+            continue;
+        }
 
         if (/^title\s+/i.test(trimmed)) {
             mermaidLines.push(trimmed);
