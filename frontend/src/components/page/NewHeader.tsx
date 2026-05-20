@@ -14,6 +14,7 @@ import {alpha, styled} from '@mui/material/styles';
 import React, {FunctionComponent, MouseEvent, useRef, useState} from 'react';
 import {ExampleMap, MapPersistenceStrategy} from '../../constants/defaults';
 import {useI18n} from '../../hooks/useI18n';
+import OpenFromGitHubDialog from '../github/OpenFromGitHubDialog';
 import CoreHeader from './CoreHeader';
 
 interface StyledMenuProps {
@@ -68,6 +69,7 @@ export interface NewHeaderProps {
     setShowWysiwygToolbar: React.Dispatch<React.SetStateAction<boolean>>;
     showMapIterations: boolean;
     setShowMapIterations: React.Dispatch<React.SetStateAction<boolean>>;
+    openFromGitHub: (id: string) => void;
 }
 
 export const NewHeader: FunctionComponent<NewHeaderProps> = ({
@@ -89,9 +91,11 @@ export const NewHeader: FunctionComponent<NewHeaderProps> = ({
     setShowWysiwygToolbar,
     showMapIterations,
     setShowMapIterations,
+    openFromGitHub,
 }) => {
     const [anchorMoreEl, setAnchorMoreEl] = useState<Element | null>();
     const [modalShow, setModalShow] = useState(false);
+    const [gitHubDialogShow, setGitHubDialogShow] = useState(false);
 
     // Get translation function
     const {t} = useI18n();
@@ -130,6 +134,10 @@ export const NewHeader: FunctionComponent<NewHeaderProps> = ({
             anchorEl={anchorMoreEl}
             open={openMore}
             onClose={handleMenuClose}>
+            <MenuItem disableRipple onClick={() => handleMoreClose(() => setGitHubDialogShow(true))}>
+                Open from GitHub…
+            </MenuItem>
+            <Divider />
             <MenuItem disableRipple onClick={() => handleMoreClose(() => setModalShow(true))}>
                 {t('header.getCloneUrl', 'Get Clone URL')}
             </MenuItem>
@@ -234,6 +242,8 @@ export const NewHeader: FunctionComponent<NewHeaderProps> = ({
                     <Button onClick={saveMapClick}>{t('map.saveMap', 'Save Map')}</Button>
                 </DialogActions>
             </Dialog>
+
+            <OpenFromGitHubDialog open={gitHubDialogShow} onClose={() => setGitHubDialogShow(false)} onOpen={openFromGitHub} />
         </CoreHeader>
     );
 };

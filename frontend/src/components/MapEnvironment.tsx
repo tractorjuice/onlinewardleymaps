@@ -436,6 +436,15 @@ const MapEnvironmentWithUndoRedo: FunctionComponent<MapEnvironmentWithUndoRedoPr
         },
     ];
 
+    const openFromGitHub = useCallback(
+        (id: string) => {
+            setMapPersistenceStrategy(Defaults.MapPersistenceStrategy.GitHub);
+            setCurrentId(id);
+            setShouldLoad(true);
+        },
+        [setMapPersistenceStrategy, setCurrentId, setShouldLoad],
+    );
+
     const shouldHideNav = useCallback(() => {
         setHideNav(!hideNav);
     }, [hideNav]);
@@ -730,6 +739,7 @@ const MapEnvironmentWithUndoRedo: FunctionComponent<MapEnvironmentWithUndoRedoPr
                 saveOutstanding={saveOutstanding}
                 mutateMapText={mutateMapText}
                 newMapClick={mapPersistence.newMap}
+                openFromGitHub={openFromGitHub}
                 saveMapClick={mapPersistence.saveMap}
                 downloadMapImage={downloadMap}
                 showLineNumbers={showLineNumbers}

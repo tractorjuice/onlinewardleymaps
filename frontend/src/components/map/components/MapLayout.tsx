@@ -30,6 +30,7 @@ interface MapLayoutProps {
     saveOutstanding: boolean;
     mutateMapText: (text: string) => void;
     newMapClick: (strategy: string) => void;
+    openFromGitHub: (id: string) => void;
     saveMapClick: () => Promise<void>;
     downloadMapImage: () => void;
     showLineNumbers: boolean;
@@ -75,6 +76,7 @@ export const MapLayout: React.FC<MapLayoutProps> = ({
     saveOutstanding,
     mutateMapText,
     newMapClick,
+    openFromGitHub,
     saveMapClick,
     downloadMapImage,
     showLineNumbers,
@@ -130,6 +132,7 @@ export const MapLayout: React.FC<MapLayoutProps> = ({
                     saveOutstanding={saveOutstanding}
                     mutateMapText={mutateMapText}
                     newMapClick={newMapClick}
+                    openFromGitHub={openFromGitHub}
                     saveMapClick={saveMapClick}
                     downloadMapImage={downloadMapImage}
                     showLineNumbers={showLineNumbers}
