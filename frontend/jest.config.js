@@ -3,7 +3,7 @@ module.exports = {
         '@/(.*)$': '<rootDir>/src/$1',
     },
     setupFilesAfterEnv: ['<rootDir>/.jest/register-context.js', '<rootDir>/src/setupTests.js'],
-    testEnvironment: 'jsdom',
+    testEnvironment: '<rootDir>/.jest/jsdom-with-fetch-env.js',
     transform: {
         '^.+\\.(ts|tsx|js|jsx)$': ['babel-jest', {presets: ['next/babel']}],
     },
