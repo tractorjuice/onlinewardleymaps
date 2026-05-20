@@ -9,6 +9,7 @@ export const increasedLabelOffset = {x: 5, y: -20};
 
 export const MapPersistenceStrategy = {
     Legacy: 'Legacy',
+    GitHub: 'GitHub',
 };
 
 export interface Offsets {
