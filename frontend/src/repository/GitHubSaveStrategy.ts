@@ -23,6 +23,7 @@ export class GitHubSaveStrategy implements SaveStrategy {
         const message = window.prompt('Commit message', 'Update Wardley map via OnlineWardleyMaps');
         if (message === null) return; // user cancelled
 
+        // keptAsComments (unsupported keywords preserved as %% comments) is intentionally not surfaced in the UI yet — see the design spec's out-of-scope list.
         const {mermaid} = exportToMermaid(map.mapText);
         const newFileContent = replaceMermaidFence(session.rawFileContent, mermaid);
 

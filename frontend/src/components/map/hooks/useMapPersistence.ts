@@ -5,6 +5,7 @@ import {useI18n} from '../../../hooks/useI18n';
 import {LoadMap} from '../../../repository/LoadMap';
 import {MapIteration, OwnApiWardleyMap} from '../../../repository/OwnApiWardleyMap';
 import {SaveMap} from '../../../repository/SaveMap';
+import {GitHubApiError} from '../../../repository/github/GitHubClient';
 
 interface UseMapPersistenceProps {
     currentId: string;
@@ -87,7 +88,31 @@ export const useMapPersistence = (props: UseMapPersistenceProps): UseMapPersiste
                 });
             };
 
-            await SaveMap(mapPersistenceStrategy, mapToPersist, hash, followOnActions);
+            try {
+                await SaveMap(mapPersistenceStrategy, mapToPersist, hash, followOnActions);
+            } catch (error: unknown) {
+                let message: string;
+                if (error instanceof GitHubApiError) {
+                    const status = error.status;
+                    if (status === 401 || status === 403) {
+                        message =
+                            'GitHub rejected the request — check your token has Contents read & write permission for this repository.';
+                    } else if (status === 404) {
+                        message = 'File or branch not found on GitHub.';
+                    } else if (status === 409) {
+                        message = 'This file changed on GitHub since you opened it. Reload before saving.';
+                    } else {
+                        message = `GitHub error (${status}): ${error.message}`;
+                    }
+                } else if (error instanceof Error) {
+                    message = error.message || 'Could not complete the GitHub operation.';
+                } else {
+                    message = 'Could not complete the GitHub operation.';
+                }
+                window.alert(message);
+                setActionInProgress(false);
+                setCurrentUrl(window.location.href);
+            }
         },
         [currentId, mapPersistenceStrategy, mapText, mapIterations, setActionInProgress, setCurrentId, setCurrentUrl, setSaveOutstanding],
     );
@@ -126,7 +151,35 @@ export const useMapPersistence = (props: UseMapPersistenceProps): UseMapPersiste
         setActionInProgress(true);
         setCurrentUrl('(loading...)');
         console.log('--- Set Load Strategy: ', mapPersistenceStrategy);
-        await LoadMap(mapPersistenceStrategy, followOnActions, currentId);
+        try {
+            await LoadMap(mapPersistenceStrategy, followOnActions, currentId);
+        } catch (error: unknown) {
+            if (error instanceof Error && error.name === 'GitHubLoadCancelled') {
+                // User deliberately cancelled — no alert needed.
+            } else {
+                let message: string;
+                if (error instanceof GitHubApiError) {
+                    const status = error.status;
+                    if (status === 401 || status === 403) {
+                        message =
+                            'GitHub rejected the request — check your token has Contents read & write permission for this repository.';
+                    } else if (status === 404) {
+                        message = 'File or branch not found on GitHub.';
+                    } else if (status === 409) {
+                        message = 'This file changed on GitHub since you opened it. Reload before saving.';
+                    } else {
+                        message = `GitHub error (${status}): ${error.message}`;
+                    }
+                } else if (error instanceof Error) {
+                    message = error.message || 'Could not complete the GitHub operation.';
+                } else {
+                    message = 'Could not complete the GitHub operation.';
+                }
+                window.alert(message);
+            }
+            setActionInProgress(false);
+            setCurrentUrl(window.location.href);
+        }
     }, [
         mapPersistenceStrategy,
         currentId,

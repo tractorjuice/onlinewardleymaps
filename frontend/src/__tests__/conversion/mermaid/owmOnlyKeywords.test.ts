@@ -3,6 +3,8 @@ import {isOwmOnlyLine} from '../../../conversion/mermaid/owmOnlyKeywords';
 describe('isOwmOnlyLine', () => {
     it.each([
         'style wardley',
+        'style colour',
+        'style handwritten',
         'build Foo',
         'x-axis Genesis -> Commodity',
         'y-axis Value -> Invisible',
@@ -24,6 +26,7 @@ describe('isOwmOnlyLine', () => {
         'Market segmentation -> Last Mile',
         'Pioneer programme -> Funding',
         'evolve Kettle 0.62',
+        'style guide -> Funding',
         '',
     ])('treats "%s" as a normal line', line => {
         expect(isOwmOnlyLine(line)).toBe(false);

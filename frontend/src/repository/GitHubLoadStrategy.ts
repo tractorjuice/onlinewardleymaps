@@ -18,7 +18,15 @@ export class GitHubLoadStrategy extends LoadStrategy {
         const client = new GitHubClient(token);
         const file = await client.readFile(source);
 
-        const {body} = extractMermaidFence(file.content);
+        const {body, hasFence} = extractMermaidFence(file.content);
+        if (!hasFence) {
+            const proceed = window.confirm('No Mermaid wardley-beta diagram was found in this file. Open the whole file as a map anyway?');
+            if (!proceed) {
+                const cancelled = new Error('GitHub load cancelled by user.');
+                cancelled.name = 'GitHubLoadCancelled';
+                throw cancelled;
+            }
+        }
         const mapText = importFromMermaid(body);
 
         setSession({source, sha: file.sha, rawFileContent: file.content});

@@ -32,4 +32,17 @@ describe('GitHubLoadStrategy', () => {
         const strategy = new GitHubLoadStrategy(jest.fn());
         await expect(strategy.load('acme/maps/main/tea.md')).rejects.toThrow(/token/i);
     });
+
+    it('rejects with GitHubLoadCancelled when no fence and user declines confirm', async () => {
+        const fileWithNoFence = '# Just markdown\nNo mermaid fence here.';
+        jest.spyOn(GitHubClient.prototype, 'readFile').mockResolvedValue({content: fileWithNoFence, sha: 'sha2'});
+        jest.spyOn(window, 'confirm').mockReturnValue(false);
+
+        const callback = jest.fn();
+        const strategy = new GitHubLoadStrategy(callback);
+        await expect(strategy.load('acme/maps/main/docs/tea.md')).rejects.toMatchObject({
+            name: 'GitHubLoadCancelled',
+        });
+        expect(callback).not.toHaveBeenCalled();
+    });
 });

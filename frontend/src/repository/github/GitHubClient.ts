@@ -44,7 +44,8 @@ export class GitHubClient {
     }
 
     private contentsUrl(s: GitHubSource): string {
-        return `${API}/repos/${s.owner}/${s.repo}/contents/${s.path}`;
+        const encodedPath = s.path.split('/').map(encodeURIComponent).join('/');
+        return `${API}/repos/${s.owner}/${s.repo}/contents/${encodedPath}`;
     }
 
     async readFile(source: GitHubSource): Promise<GitHubFile> {
@@ -71,6 +72,9 @@ export class GitHubClient {
         const data = await response.json().catch(() => ({}));
         if (!response.ok) {
             throw new GitHubApiError(response.status, data.message || 'GitHub commit failed');
+        }
+        if (!data.content?.sha) {
+            throw new GitHubApiError(response.status, 'GitHub commit returned an unexpected response.');
         }
         return {sha: data.content.sha};
     }
